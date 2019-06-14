@@ -14,6 +14,15 @@ class Queue
 
     def peek
         #returns the next element that would be removed
-        @queuee.first
+        @queue.first
     end
+end
+
+
+if __FILE__ == $0
+    p queue = Queue.new{[]}
+    p queue.enqueue(4) # ==> [4]
+    p queue.enqueue(6) # ==> [4, 6]
+    p queue.dequeue     # ==> 4
+    p queue.peek    # ==> 6
 end
