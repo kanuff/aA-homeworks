@@ -11,7 +11,7 @@ class Simon
 
   def play
     take_turn
-    until @game_over
+    until game_over
       take_turn
     end
     game_over_message
@@ -30,10 +30,10 @@ class Simon
 
   def show_sequence
     add_random_color
-    @seq.each do |color|
+    seq.each do |color|
       puts color
     end
-    sleep(1 + @seq.length/2)
+    sleep(1 + seq.length/2)
   end
 
   def require_sequence
@@ -49,12 +49,13 @@ class Simon
   end
 
   def add_random_color
-    
     @seq << COLORS.sample
   end
 
   def round_success_message
+    system("clear")
     puts "Good job"
+    puts "#"*20
   end
 
   def game_over_message
@@ -69,5 +70,7 @@ class Simon
 end
 
 
-# simon = Simon.new
-# simon.play
+simon = Simon.new
+while true
+  simon.play
+end
